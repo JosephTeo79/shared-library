@@ -1,0 +1,62 @@
+/* 左侧 flex 布局 */
+#left-pane {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; /* 顶部菜单 + 底部模块 */
+  height: 100vh; /* 左侧满屏高度 */
+}
+
+#left-pane ul {
+  flex: 1; /* 菜单占剩余空间 */
+  overflow-y: auto; /* 可滚动 */
+}
+
+/* 提示模块 */
+.future-updates {
+  text-align: center;
+  padding: 10px 5px;
+  font-family: 'Arial', sans-serif;
+  color: #333;
+  background-color: #f9f9f9;
+  border-radius: 10px;
+  max-width: 180px;
+  margin: 0 auto 10px auto;
+  box-shadow: 0 1px 6px rgba(0,0,0,0.1);
+}
+
+/* 动画图标 */
+.future-updates .icon {
+  display: inline-block;
+  font-size: 24px;
+  animation: swing 1.5s infinite alternate;
+  margin-bottom: 8px;
+}
+
+@keyframes swing {
+  from { transform: rotate(-15deg); }
+  to { transform: rotate(15deg); }
+}
+
+/* 标题文字动画 */
+.future-updates .title {
+  font-size: 16px;
+  margin: 0;
+  animation: bounce 1.5s infinite alternate;
+}
+
+@keyframes bounce {
+  from { transform: translateY(0); }
+  to { transform: translateY(-5px); }
+}
+
+.future-updates .subtitle {
+  font-size: 12px;
+  color: #666;
+  margin-top: 4px;
+}
+
+/* 左侧底部区域 */
+.bottom-area {
+  text-align: center;
+  padding-bottom: 10px;
+}
