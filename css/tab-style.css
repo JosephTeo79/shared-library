@@ -1,0 +1,91 @@
+/* 页面基础 */
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  font-family: sans-serif;
+}
+
+/* 容器布局 */
+#container {
+  display: flex;
+  height: 100vh;
+}
+
+#left-pane {
+  width: 220px;
+  border-right: 1px solid #ccc;
+  overflow-y: auto;
+  padding: 5px;
+}
+
+#divider {
+  width: 1px;
+  background: #ccc;
+}
+
+#right-pane {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Tab 栏 */
+#tab-bar {
+  display: flex;
+  border-bottom: 1px solid #ccc;
+  height: 40px;
+  background: #f7f7f7;
+}
+
+.tab {
+  display: flex;
+  align-items: center;
+  padding: 5px 10px;
+  border: 1px solid #ccc;
+  border-bottom: none;
+  margin-right: 3px;
+  cursor: pointer;
+  background: #eee;
+  border-top-left-radius: 6px;
+  border-top-right-radius: 6px;
+  position: relative;
+}
+
+.tab.active {
+  background: #fff;
+  font-weight: bold;
+}
+
+.close-btn {
+  margin-left: 8px;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+/* Tab 内容区域 */
+#tab-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto; /* 只有这里出现滚动 */
+  background: #fff;
+  padding: 10px;
+}
+
+/* iframe 和 PDF canvas */
+.tab-frame {
+  width: 100%;
+  height: 100%;
+  border: none;
+  display: none;
+}
+
+canvas {
+  width: 100%;
+  height: auto; /* 自适应宽度，高度按比例缩放 */
+  display: block;
+  margin-bottom: 20px;
+}

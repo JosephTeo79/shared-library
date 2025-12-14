@@ -1,0 +1,140 @@
+/* Reset & body */
+body, html {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  width: 100%;
+  font-family: sans-serif;
+}
+
+/* Container */
+#container {
+  display: flex;
+  height: 100%;
+}
+
+/* 分隔条 */
+#divider {
+  width: 5px;
+  cursor: col-resize;
+  background-color: #ddd;
+}
+
+#divider:hover {
+  background-color: #aaa;
+}
+
+/* 左侧菜单 */
+#left-pane {
+  width: 280px;
+  min-width: 280px !important; /* 防止 flex 压缩 */
+  
+  border-right: 1px solid #ccc;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  padding: 10px;
+  flex-shrink: 0 !important;   /* ← flex 不允许压缩 */
+}
+
+/* 菜单列表 */
+#left-pane > ul {
+  flex: 1;
+  list-style: none;
+  padding-left: 0;
+  margin: 0;
+  overflow-y: auto;
+}
+
+/* 每个列表项间距 */
+#left-pane ul li {
+  margin-bottom: 8px;       /* folder/子项之间间距 */
+}
+
+/* folder 可点击区域 */
+#left-pane li > span.caret {
+  display: block;
+  cursor: pointer;
+  user-select: none;
+  padding: 5px 0;           /* 点击空间 */
+}
+
+/* 链接样式 */
+#left-pane li > a {
+  display: block;
+  padding: 5px 0;
+  text-decoration: none;
+  color: #000;
+}
+
+#left-pane li > a:hover {
+  text-decoration: underline;
+}
+
+/* 图标 */
+.image {
+  width: 16px;
+  height: 16px;
+  vertical-align: middle;
+  margin-right: 5px;
+}
+
+/* 子菜单 */
+.nested {
+  display: none;             /* 默认隐藏 */
+  padding-left: 20px;        /* 缩进子菜单 */
+  list-style: none;
+  margin: 5px 0;             /* 子菜单上下间距 */
+}
+
+/* 展开显示 */
+.active {
+  display: block;
+}
+
+/* 箭头 */
+.caret::before {
+  content: "▶";
+  color: black;
+  display: inline-block;
+  margin-right: 5px;
+}
+
+.caret-down::before {
+  transform: rotate(90deg);
+}
+
+/* 底部标题 */
+#left-pane .footer-title {
+  text-align: center;
+  padding: 10px;
+  font-size: 16px;
+  background: #f5f5f5;
+  border-top: 1px solid #ccc;
+  flex-shrink: 0;             /* 不收缩 */
+}
+
+/* 右侧 iframe */
+#right-pane {
+  flex: 1;
+  overflow: hidden;
+}
+
+#right-pane iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+/* ---- 子菜单缩进修正（让 PDF icon 不与父级对齐） ---- */
+#left-pane ul .nested li a {
+  padding-left: 18px;     /* 子菜单内容整体右缩进 */
+  display: flex;          /* 图标 & 文字并排 */
+  align-items: center;    /* 图标垂直居中 */
+}
+
+/* 图标右边空隙确保一致 */
+#left-pane ul .nested li a .image {
+  margin-right: 6px;
+}
+
